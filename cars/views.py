@@ -34,13 +34,24 @@ class CarView(View):
             )
 
     
-def new_cars_view(request):
-    if request.method == 'POST':
+# def new_cars_view(request):
+#     if request.method == 'POST':
+#         form = CarForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('cars_list')    
+#     else:
+#         form = CarForm()
+#     return render(request, 'new_car.html', {'form': form})
+            
+class NewCarView(View):
+    def get(self, request):
+        form = CarForm()
+        return render(request, 'new_car.html', {'form': form})
+    
+    def post(self, request):
         form = CarForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('cars_list')    
-    else:
-        form = CarForm()
-    return render(request, 'new_car.html', {'form': form})
-            
+        return render(request, 'new_car.html', {'form': form})
