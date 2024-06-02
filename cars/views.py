@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect
+#from django.shortcuts import render, redirect
 from .models import Car
 from .forms import CarForm
-from django.views.generic import ListView, CreateView
-from django.views import View
+from django.views.generic import ListView, CreateView, DetailView
+#from django.views import View
 # Create your views here.
 
 # def cars_view(request):
@@ -75,3 +75,7 @@ class NewCarCreateView(CreateView):
     form_class = CarForm
     template_name = 'new_car.html'
     success_url = '/cars/'
+    
+class CarDetailView(DetailView):
+    model = Car
+    template_name='car_detail.html'
