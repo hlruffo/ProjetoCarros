@@ -2,7 +2,7 @@
 from django.contrib import admin
 from django.urls import path
 from django.conf import settings
-from .views import CarListView, NewCarCreateView, CarDetailView    #, cars_view,new_cars_view,CarView,NewCarView, 
+from .views import CarListView, NewCarCreateView, CarDetailView, CarUpdateView, CarDeleteView    #, cars_view,new_cars_view,CarView,NewCarView, 
 
 urlpatterns = [    
     #path('', cars_view, name='cars_list'),
@@ -12,4 +12,6 @@ urlpatterns = [
     #path('new_car', NewCarView.as_view(), name='new_car'), # a chamada de classes depende da função as_view()
     path ('new_car', NewCarCreateView.as_view(), name='new_car'),
     path('car/<int:pk>/', CarDetailView.as_view(), name='car_detail'),
+    path('car/<int:pk>/delete', CarDeleteView.as_view(), name='car_delete'),
+    path('car/<int:pk>/update/', CarUpdateView.as_view(), name='car_update'),
 ]
