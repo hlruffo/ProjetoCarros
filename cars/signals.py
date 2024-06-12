@@ -21,7 +21,7 @@ def car_pre_save(sender, instance, **kwargs):
                 instance.model, instance.brand, instance.model_year
             )
         except:
-            instance.bio = "Geramos automaticamente uma bio para você."
+            instance.bio = "Geramos automaticamente uma bio para você!!"
         
 @receiver(post_save, sender=Car)
 def car_post_save(sender, instance, **kwargs):
