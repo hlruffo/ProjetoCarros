@@ -12,4 +12,4 @@ def get_car_ai_bio(model, brand,year):
         prompt='',
         max_tokens=1000
     )
-    return response['choices'][0]['text'] Atu
+    return response['choices'][0]['text']

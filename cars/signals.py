@@ -16,10 +16,12 @@ def car_inventory_update():
 @receiver(pre_save, sender=Car)
 def car_pre_save(sender, instance, **kwargs):
     if not instance.bio:
-        #instance.bio = "Geramos automaticamente uma bio para você."
-        ai_bio = get_car_ai_bio(
-            instance.model, instance.brand, instance.model_year
-        )
+        try:
+            ai_bio = get_car_ai_bio(
+                instance.model, instance.brand, instance.model_year
+            )
+        except:
+            instance.bio = "Geramos automaticamente uma bio para você."
         
 @receiver(post_save, sender=Car)
 def car_post_save(sender, instance, **kwargs):
