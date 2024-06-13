@@ -22,5 +22,6 @@ def get_car_ai_bio(model, brand, year):
         max_tokens=1000,
         model='gpt-3.5-turbo',
     )
+    
 
     return response.choices[0].message.content
